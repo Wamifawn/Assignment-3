@@ -1,4 +1,4 @@
-package src;
+//package src;
 class HuffmanNode {
  char character;           
  int frequency;       
