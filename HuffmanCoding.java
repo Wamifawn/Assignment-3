@@ -25,9 +25,20 @@ public class HuffmanCoding {
 	         }
          }
 
-		 //Create a queue where the lowest frequency characters will have the highest priority
-	    PriorityQueue<HuffmanNode> pq =
-	                new PriorityQueue<>((a, b) -> a.frequency - b.frequency);
+		 //Create a queue where the lowest frequency characters will have the highest priority	
+
+		// new version 
+		PriorityQueue<HuffmanNode> pq = new PriorityQueue<HuffmanNode>(
+        11,
+        	new Comparator<HuffmanNode>() {
+        		public int compare(HuffmanNode a, HuffmanNode b) {
+                	return a.frequency - b.frequency; // sorts by frequency, ascending
+                }
+            }
+        );
+	    // This is giving errors with fox server bc fox servers java version is too old 
+		// PriorityQueue<HuffmanNode> pq =    
+	    //             new PriorityQueue<>((a, b) -> a.frequency - b.frequency);
 		
    
 	    // Loop through all unique characters found in our frequency map.
